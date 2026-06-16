@@ -24,9 +24,7 @@ The `data/` folder is where the downloaded GBIF file should be placed. The `resu
 
 The notebook `gbif_sdm_practical.ipynb` walks through the full practical workflow: loading a GBIF occurrence file, applying basic and optional `CoordinateCleaner` filters, mapping cleaned records in Austria, extracting climate predictors, fitting a simple logistic-regression SDM with presence and background points, and saving/plotting continuous and binary suitability maps.
 
-## Hint:
-
-This has been tested with this:
+JupyterHub relies on this:
 
 ```
 https://github.com/reslp/jupyterhub-singularity
@@ -130,7 +128,7 @@ Roberts et al. (2017) explain why evaluation is especially difficult for spatial
 
 Recent work also warns against judging SDMs only by numerical performance metrics. Fiorentino et al. (2025) show that models can perform well according to common metrics while still producing ecologically implausible responses or poor climate-change extrapolations. For this reason, students should look at the map, the model summary and the ecological plausibility of the response, not only at whether the script runs successfully.
 
-## References cited
+## References
 
 Elith, J. & Leathwick, J. R. 2009. Species distribution models: ecological explanation and prediction across space and time. *Annual Review of Ecology, Evolution, and Systematics* 40: 677–697. https://doi.org/10.1146/annurev.ecolsys.110308.120159
 
