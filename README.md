@@ -82,7 +82,7 @@ The simple bounding-box method is easy to understand, while CoordinateCleaner is
 
 ## Part 3: Plot occurrence data in R with ggplot2
 
-A map is more than just a pretty figure. It is a quality-control step. You should check whether the records are actually in Austria, whether they form suspicious clusters, whether there are still outliers, and whether the distribution reflects plausible biology or obvious sampling structure. Dense clusters around cities or well-sampled regions may indicate observation effort rather than species ecology. This is one reason why occurrence maps should be inspected before any model is fitted.
+Plotting occurence data is also a quality-control step. You should check whether the records are actually in Austria, whether they form suspicious clusters, whether there are still outliers, and whether the distribution reflects plausible biology or obvious sampling structure. Dense clusters around cities or well-sampled regions may indicate observation effort rather than species ecology. This is one reason why occurrence maps should be inspected before any model is fitted.
 
 Of course what you will see will depend on the species you choose to analyze.
 
@@ -105,14 +105,14 @@ Here, `pa = 1` marks the cleaned GBIF occurrence records and `pa = 0` marks the 
 
 Phillips et al. (2009) explains that background or pseudo-absence choices strongly influence presence-only models, especially when occurrence data are spatially biased.
 
-Here, random background points are acceptable because they make the idea clear. In a research analysis, one would think much harder about the accessible area, sampling bias, target-group background, spatial thinning and model evaluation.
+Here, random background points are acceptable because they are simple to use and help with the binary model we are using. In a research analysis, one would think much harder about the accessible area, sampling bias, target-group background, spatial thinning and model evaluation.
 
 >[!CAUTION] 
 >Think about the species you chose, can you think of any reasons how the biologoy of the species could violate the assumptions about the model?
 
-The two predictors are also chosen for simplicity rather than completeness. Annual mean temperature (`bio1`) and annual precipitation (`bio12`) are easy to interpret and often ecologically relevant, but real species distributions may depend on seasonality, extremes, substrate, land use, forest structure, dispersal limitation, biotic interactions and historical factors and more. Elith & Leathwick (2009) write that SDMs are strongest when predictors have **a plausible ecological link** to the species, not merely when they improve statistical fit.
+The two predictors are also chosen for simplicity. Annual mean temperature (`bio1`) and annual precipitation (`bio12`) are easy to interpret and often ecologically relevant, but real species distributions may depend on many other factors such as seasonality, extremes, substrate, land use, forest structure, dispersal limitation, biotic interactions and historical factors and more. Not all of these factors are actually easily available for every species. Elith & Leathwick (2009) write that SDMs are strongest when predictors have **a plausible ecological link** to the species, not merely when they improve statistical fit.
 
-After fitting the model, we can predict climatic suitability across Austria and create both a continuous probability map and a binary map. The binary map uses the 10th percentile of the predicted values at presence points as a simple threshold.
+After fitting the model, we can predict climatic suitability across Austria and create both a continuous probability map and a binary map. The binary map uses the 10th percentile of the predicted values at presence points as a simple threshold. We will get to what this means exactly.
 
 Such thresholds are useful because they turn a continuous prediction into a simple map of relatively suitable and less suitable areas. They are also dangerous if interpreted too strongly. A threshold does not magically separate true presence from true absence, and different thresholds can produce different maps. For research, threshold choice should be justified, sensitivity should be checked, and the continuous prediction should usually be inspected alongside the binary result.
 
